@@ -34,16 +34,18 @@ html {
 */
 body {
     padding: 0;
-    margin: -1rem;
+    margin-top: -1rem;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
     line-height: 1.5;
     background-color: #e5e5e5;
+    min-width: 300px;
 }
 
 .container {
     /* obsah stránky je omezený do pruhu širokého 1200px */
     max-width: 1200px;
+    min-width: 350px;
     /* stránka je vycentrovaná */
     margin: 0 auto;
     background: white;
@@ -51,6 +53,8 @@ body {
 }
 
 /* ----- zde začni psát vlastní CSS ----- */
+
+/*Pro mobilní verzi*/
 
 .paticka {
     background-color: #48418e;
@@ -68,9 +72,28 @@ body {
 }
 
 li {
-    display: inline-block;
     color: #48418e;
-    padding: 1rem 2rem;
+    display: inline-block;
+    width: 49.5%;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+li:hover {
+    background-color: #48418e;
+    color: white;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* Ruším odsazení kolem navigace, které tam z bůhvíjakého důvodu bylo*/
+ol {
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 h2 {
@@ -78,36 +101,179 @@ h2 {
 }
 
 .hlavicka {
-    background-image: url('images/telefon.png'), linear-gradient(to right, #25133d, #aa5477);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    height: 420px;
-    margin-top: -1rem;
+    background-image: linear-gradient(to right, #25133d, #aa5477);
+    height: 300px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 2rem;
 }
 
 .hlavicka h1 {
     font-weight: 700;
+    margin: 0;
+    font-size: 2rem;
 }
 
 .hlavicka .slogan {
     font-weight: 300;
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 .tlacitko-stahnout {
-    width: max-content;
     text-align: center;
     padding: 1rem;
-    width: 170px;
-    border: 1px solid white;
-    border-radius: 15% 15% 15% 15%;
+    width: 200px;
+    background-color: #48418e;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.tlacitko-stahnout:hover {
+    background-color: transparent;
 }
 
 .tlacitko-info {
-    width: max-content;
     text-align: center;
     padding: 1rem;
-    width: 170px;
+    width: 200px;
     border: 1px solid white;
-    border-radius: 15% 15% 15% 15%;
+    border-radius: 10px;
+}
+
+.tlacitko-info:hover {
+    background-color: #48418e;
+}
+
+article {
+    width: 100%;
+    height: calc(100%/3);
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hlavni {
+    display: flex;
+    direction: column;
+    flex-wrap: wrap;
+}
+
+/*Pro tablet*/
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+    .hlavicka {
+        background-image: linear-gradient(to right, #25133d, #aa5477);
+        }
+
+    .tlacitko-stahnout {
+        width: 250px;
+    }
+
+    .tlacitko-info {
+        width: 250px;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    li {
+        width: auto;
+    }
+
+    article {
+        padding: 0 5rem;
+    }
+}
+
+/*Pro velké tablety a NTB*/
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .hlavicka {
+        background-image:  url('images/telefon.png'), linear-gradient(to right, #25133d, #aa5477);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        height: 410px;
+        }
+
+        .tlacitko-stahnout {
+            width: 250px;
+            position: relative;
+            top: 5rem;
+        }
+    
+        .tlacitko-info {
+            width: 250px;
+            position: relative;
+            bottom: 2rem;
+            left: 18rem;
+        }
+    
+        nav {
+            flex-direction: row;
+        }
+    
+        li {
+            width: auto;
+        }
+
+        .hlavni {
+            flex-direction: row;
+        }
+
+        article {
+            height: 100%;
+            width: calc(100%/3);
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+}
+
+/*Pro velké NTB, monitory apod.*/
+
+@media screen and (min-width: 1201px) {
+
+        .hlavicka {
+        background-image:  url('images/telefon.png'), linear-gradient(to right, #25133d, #aa5477);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        height: 410px;
+        }
+
+        .tlacitko-stahnout {
+            width: 250px;
+            position: relative;
+            top: 5rem;
+        }
+    
+        .tlacitko-info {
+            width: 250px;
+            position: relative;
+            bottom: 2rem;
+            left: 18rem;
+        }
+    
+        nav {
+            flex-direction: row;
+        }
+    
+        li {
+            width: auto;
+        }
+        .hlavni {
+            flex-direction: row;
+        }
+
+        article {
+            height: 100%;
+            width: calc(100%/3);
+            text-align: center;
+            padding: 0 2rem;
+        }
+
 }
